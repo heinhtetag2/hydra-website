@@ -14,7 +14,6 @@ function useCountUp(target: number, duration: number, triggered: boolean) {
 
   useEffect(() => {
     if (!triggered) return;
-    let start = 0;
     const startTime = performance.now();
 
     const tick = (now: number) => {
