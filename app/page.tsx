@@ -3,6 +3,7 @@ import ProjectsCarousel from "./ProjectsCarousel";
 import IndustryCard from "./IndustryCard";
 import WorldMap from "./WorldMap";
 import MobileNav from "./MobileNav";
+import StatsCounter from "./StatsCounter";
 
 /* ─── Shared Button Component ─── */
 function ArrowIcon({ className = "w-4 h-4" }: { className?: string }) {
@@ -200,19 +201,7 @@ function StatsSection() {
         </div>
       </div>
       <div data-cursor="light" className="bg-brand-primary h-[818px] md:h-[708px] md:flex-1 flex items-center justify-center">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-y-[50px] md:gap-x-[120px] md:gap-y-[70px] text-brand-accent">
-          {[
-            { value: "42%", label: "Carbon Reduction" },
-            { value: "184+", label: "Global Projects" },
-            { value: "461M", label: "Saved In Revenue" },
-            { value: "23%", label: "Average Roi" },
-          ].map((stat) => (
-            <div key={stat.label} className="flex flex-col items-center gap-5">
-              <span className="text-[40px] md:text-[60px] leading-[48px] md:leading-[72px] tracking-[-2px] font-medium">{stat.value}</span>
-              <span className="text-base">{stat.label}</span>
-            </div>
-          ))}
-        </div>
+        <StatsCounter />
       </div>
     </section>
   );
