@@ -13,7 +13,10 @@ function useCountUp(target: number, duration: number, triggered: boolean) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    if (!triggered) return;
+    if (!triggered) {
+      setCount(0);
+      return;
+    }
     const startTime = performance.now();
 
     const tick = (now: number) => {
@@ -58,7 +61,8 @@ export default function StatsCounter() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setTriggered(true);
-          observer.disconnect();
+        } else {
+          setTriggered(false);
         }
       },
       { threshold: 0.1 }
